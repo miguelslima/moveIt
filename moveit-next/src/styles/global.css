@@ -18,6 +18,11 @@
   --blue-twitter: #2aa9e0;
 }
 
+[data-theme="dark"] {
+  --background: #000;
+  --foreground: white;
+}
+
 @media (max-width: 1080px) {
   html {
     font-size: 93.75%;

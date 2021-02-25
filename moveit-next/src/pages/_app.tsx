@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { ThemeProvider } from "next-themes";
 
 import { ChallengesProvider } from "../contexts/ChallengesContext";
 import "../styles/global.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChallengesProvider>
-      <Component {...pageProps} />
-    </ChallengesProvider>
+    <ThemeProvider>
+      <ChallengesProvider>
+        <Component {...pageProps} />
+      </ChallengesProvider>
+    </ThemeProvider>
   );
 }
 
