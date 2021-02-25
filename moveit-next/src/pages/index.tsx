@@ -17,18 +17,40 @@ export default function Home() {
 
   useEffect(() => setMounted(true), []);
 
+  function setThemeDark() {
+    setTheme("dark");
+  }
+
+  function setThemeLigth() {
+    setTheme("light");
+  }
+
   if (!mounted) return null;
 
   return (
     <div className={styles.container}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          marginBottom: 10,
+        }}
+      >
+        {theme === "dark" ? (
+          <button onClick={setThemeLigth} style={{ outline: 0, border: 0 }}>
+            <img style={{ width: 30 }} src="icons/sun.svg" alt="" />
+          </button>
+        ) : (
+          <button onClick={setThemeDark} style={{ outline: 0, border: 0 }}>
+            <img style={{ width: 30 }} src="icons/moon.svg" alt="" />
+          </button>
+        )}
+      </div>
+
       <Head>
         <title>Início | move.it</title>
       </Head>
-
-      <div>
-        <button onClick={() => setTheme("light")}>Light</button>
-        <button onClick={() => setTheme("dark")}>Dark</button>
-      </div>
+      {console.log(theme)}
 
       <ExperienceBar />
 
